@@ -18,7 +18,7 @@ export default function Activities() {
           </p>
 
           <div className="about__photo-placeholder">
-            <img src="src\assets\Quienes somos.jpeg" alt="Quienes-somos" />
+            <img src="\Quienes somos.jpeg" alt="Quienes-somos" />
           </div>
         </div>
 

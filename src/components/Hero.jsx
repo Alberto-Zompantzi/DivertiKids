@@ -5,7 +5,7 @@ const infoCards = {
     title: "Caballetes Artísticos",
     description:
       "Un espacio donde cada niño se convierte en un pequeño artista.",
-    image: "/src/assets/Divertikids.jpeg", // Puedes cambiar a la imagen específica
+    image: "/Divertikids.jpeg", // Puedes cambiar a la imagen específica
     detalles: ["Pinturas no tóxicas", "Mandiles incluidos", "Dibujos variados"],
     color: "red",
   },
@@ -13,7 +13,7 @@ const infoCards = {
     title: "Pinta Alcancías",
     description:
       "¡Creatividad y ahorro! Los niños personalizan su propia figura.",
-    image: "/src/assets/Divertikids.jpeg",
+    image: "/Divertikids.jpeg",
     detalles: ["Figuras de yeso", "Pinceles de calidad", "Se lo llevan a casa"],
     color: "green",
   },
@@ -21,7 +21,7 @@ const infoCards = {
     title: "Juegos Educativos",
     description:
       "Diversión inteligente para desarrollar habilidades mientras juegan.",
-    image: "/src/assets/Divertikids.jpeg",
+    image: "/Divertikids.jpeg",
     detalles: [
       "Material didáctico",
       "Supervisión constante",
@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="hero-visual">
           <div className="hero-main-card">
             <img
-              src="src/assets/Divertikids.jpeg"
+              src="public\Divertikids.jpeg"
               alt="Niños aprendiendo"
               className="main-char-img"
             />

@@ -12,7 +12,7 @@ export default function Header() {
       ></div>
       <div className="header__container container">
         <a href="App.jsx" className="header__logo">
-          <img src="src\assets\Logo.jpg" alt="logo" />
+          <img src="\Logo.jpg" alt="logo" />
         </a>
 
         {/* Paso 3: Agregamos el botón hamburguesa (solo se verá en móvil) */}
