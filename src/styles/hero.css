@@ -1,0 +1,240 @@
+.hero-container {
+  margin-top: 90px;
+
+  position: relative;
+  padding: 40px 10%;
+  min-height: calc(100vh - 90px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-soft-purple);
+  overflow: hidden;
+  background-image: radial-gradient(
+      circle,
+      var(--primary-red) 6px,
+      transparent 3px
+    ),
+    radial-gradient(circle, var(--primary-blue) 6px, transparent 3px),
+    radial-gradient(circle, var(--primary-yellow) 8px, transparent 4px),
+    radial-gradient(circle, var(--primary-green) 6px, transparent 3px),
+    radial-gradient(circle, var(--text-purple) 4px, transparent 2px);
+
+  background-size: 150px 150px, 250px 250px, 200px 200px, 180px 180px,
+    300px 300px;
+
+  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
+}
+
+.hero-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero-visual {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-main-card {
+  background: white;
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: var(--shadow-soft);
+  border: 8px solid var(--primary-yellow);
+  position: relative;
+}
+
+.main-char-img {
+  max-width: 100%;
+  height: 20rem;
+  display: block;
+}
+
+.hero-text-side {
+  flex: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  color: var(--text-purple);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  color: var(--primary-blue);
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  max-width: 400px;
+}
+
+.cta-button {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0px #5e9e31;
+  transition: transform 0.2s;
+}
+
+.cta-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0px #5e9e31;
+}
+
+/* Botones inferiores */
+.hero-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: center;
+  padding: 0 5%;
+  max-width: 1100px;
+}
+
+.cat-card {
+  width: 100%;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 25px;
+  gap: 20px;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cat-card.red {
+  background-color: var(--primary-red);
+  box-shadow: 0 8px 0 #b33636;
+}
+.cat-card.green {
+  background-color: var(--primary-green);
+  box-shadow: 0 8px 0 #3b912a;
+}
+.cat-card.orange {
+  background-color: var(--primary-orange);
+  box-shadow: 0 8px 0 #c47b00;
+}
+
+/* Overlay de fondo */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+/* Caja de la pestaña */
+.modal-content {
+  background: white;
+  width: 95%;
+  max-width: 450px;
+  border-radius: 30px;
+  padding: 30px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Bordes dinámicos según el color de la card */
+.border-red {
+  border: 5px solid #ff4d4d;
+}
+.border-green {
+  border: 5px solid #2ecc71;
+}
+.border-orange {
+  border: 5px solid #ff9f43;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #eee;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.modal-list {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.modal-list li {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-categories {
+    flex-wrap: wrap;
+  }
+}

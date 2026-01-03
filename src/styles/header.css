@@ -1,0 +1,273 @@
+/* 1. VARIABLES (Asegúrate de tener estas o cámbialas por tus valores) */
+:root {
+  --primary-red: #ff4d4d;
+  --primary-orange: #ff9f43;
+  --primary-yellow: #ffdb4d;
+  --primary-green: #2ecc71;
+  --primary-blue: #3498db;
+  --text-purple: #6a2c91;
+  --color-light: #ffffff;
+  --font-kids: "Fredoka", sans-serif; /* O la que estés usando */
+}
+
+/* 2. HEADER BASE */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--color-light);
+  font-family: var(--font-kids);
+  height: 85px; /* Altura fija para control */
+  display: flex;
+  align-items: center;
+}
+
+/* El arcoíris animado de tu diseño original */
+.header::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px; /* Un poco más delgado para elegancia */
+  background: linear-gradient(
+    90deg,
+    var(--primary-red) 0%,
+    var(--primary-red) 20%,
+    var(--primary-orange) 20%,
+    var(--primary-orange) 40%,
+    var(--primary-yellow) 40%,
+    var(--primary-yellow) 60%,
+    var(--primary-green) 60%,
+    var(--primary-green) 80%,
+    var(--primary-blue) 80%,
+    var(--primary-blue) 100%
+  );
+  background-size: 200px 100%;
+  animation: moveRainbow 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveRainbow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200px 0;
+  }
+}
+
+/* 3. CONTENEDOR */
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 4. LOGO */
+.header__logo img {
+  height: 60px; /* Ajuste para que luzca */
+  width: auto;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.header__logo:hover img {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* 5. NAVEGACIÓN (Escritorio) */
+.header__nav {
+  display: flex;
+  gap: 30px;
+}
+
+.header__nav a {
+  text-decoration: none;
+  color: var(--text-purple);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.header__nav a:hover {
+  color: var(--primary-red);
+  transform: translateY(-3px);
+}
+
+/* 6. ACCIONES (Botones) */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header__cta {
+  background-color: var(--primary-red);
+  color: var(--color-light);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 4px 0 #b33636;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.header__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #b33636;
+}
+
+.header__cta:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #b33636;
+}
+
+.header__whatsapp {
+  background-color: #25d366;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 0 #128c7e;
+  transition: all 0.2s ease;
+}
+
+.header__whatsapp:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* 7. MENÚ HAMBURGUESA (Oculto por defecto) */
+.header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2000;
+}
+
+.header__burger span {
+  width: 100%;
+  height: 4px;
+  background-color: var(--text-purple);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* --- Capa oscura detrás del menú --- */
+.header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
+  backdrop-filter: blur(3px); /* Difumina lo de atrás */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1500; /* Debajo del Nav pero arriba del contenido */
+}
+
+.header__overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 8. RESPONSIVE (Móvil y Tablet) */
+/* --- 2. Nuevo Diseño del Menú Lateral (Móvil) --- */
+@media (max-width: 992px) {
+  .header__burger {
+    display: flex;
+    z-index: 2100;
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Escondido */
+    width: 60%; /* Casi toda la pantalla */
+    height: 100vh;
+    /* Fondo degradado estilo DivertiKids */
+    background: linear-gradient(180deg, #6a2c91 0%, #4a1d66 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 2000; /* Por encima de todo */
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Efecto de círculos decorativos en el fondo del menú */
+  .header__nav::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+  }
+
+  .header__nav.is-open {
+    right: 0; /* Entra suavemente */
+  }
+
+  /* Estilo de los links en el menú móvil */
+  .header__nav a {
+    color: #ffffff;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    width: 80%;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
+  .header__nav a:hover {
+    color: var(--primary-yellow);
+    transform: scale(1.1);
+    border-bottom-color: var(--primary-yellow);
+  }
+
+  /* Ajuste del botón hamburguesa para que sea blanco cuando el menú abra */
+  .header__burger.is-active span {
+    background-color: #ffffff; /* Para que se vea sobre el fondo morado */
+  }
+
+  .header__burger.is-active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+  .header__burger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .header__burger.is-active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .header__cta {
+    display: none; /* Ocultamos el texto "Cotizar" en móviles muy pequeños para dar espacio */
+  }
+}

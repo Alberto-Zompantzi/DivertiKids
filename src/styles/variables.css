@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap");
+
+:root {
+  /* Colors */
+  --color-primary: #ff5fa2;
+  --color-secondary: #7b6cff;
+  --color-accent: #ffd84d;
+  --color-dark: #2b2b2b;
+  --color-light: #ffffff;
+  --color-bg: #fff7fb;
+  /* Section backgrounds */
+  --bg-soft-pink: #fff1f7;
+  --bg-soft-purple: #f4f2ff;
+  --bg-soft-yellow: #fff9e6;
+
+  /* Hero */
+  --primary-red: #ff4d4d;
+  --primary-orange: #ffa500;
+  --primary-yellow: #ffdb4d;
+  --primary-green: #7ccb41;
+  --primary-blue: #00aaff;
+  --text-purple: #6a2c91;
+  --bg-dots: #f0f0f0;
+  --white: #ffffff;
+  --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-primary: "Poppins", system-ui, sans-serif;
+  --font-kids: "Fredoka", sans-serif;
+
+  /* Spacing  */
+  --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 2vw, 1rem);
+  --space-md: clamp(1rem, 3vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 4vw, 2.5rem);
+  --space-xl: clamp(2rem, 6vw, 4rem);
+
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+
+  /* Shadow (Material style) */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.12);
+}

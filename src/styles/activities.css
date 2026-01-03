@@ -1,0 +1,220 @@
+.activities {
+  width: 100%;
+  padding: 0;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+/* Contenedor de dos columnas */
+.activities__wrapper {
+  display: flex;
+  width: 100%;
+  gap: 0;
+  align-items: flex-start;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- LADO IZQUIERDO --- */
+.activities__about {
+  flex: 1;
+  background-color: #6a2c91; /* Color del título Quiénes Somos */
+  padding: 100px 5% 100px 10%; /* Padding ajustable para el contenido */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  position: relative;
+  background-image: radial-gradient(
+      circle,
+      var(--primary-red) 6px,
+      transparent 3px
+    ),
+    radial-gradient(circle, var(--primary-blue) 6px, transparent 3px),
+    radial-gradient(circle, var(--primary-yellow) 8px, transparent 4px),
+    radial-gradient(circle, var(--primary-green) 6px, transparent 3px),
+    radial-gradient(circle, var(--text-purple) 4px, transparent 2px);
+
+  background-size: 150px 150px, 250px 250px, 200px 200px, 180px 180px,
+    300px 300px;
+
+  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
+}
+
+.activities__divider {
+  position: absolute;
+  top: 0;
+  right: -30px; /* Lo desplazamos hacia el lado derecho */
+  width: 31px;
+  height: 100%;
+  background-color: #6a2c91;
+  /* Creamos una forma de "picos" o zig-zag */
+  clip-path: polygon(
+    0% 0%,
+    100% 5%,
+    0% 10%,
+    100% 15%,
+    0% 20%,
+    100% 25%,
+    0% 30%,
+    100% 35%,
+    0% 40%,
+    100% 45%,
+    0% 50%,
+    100% 55%,
+    0% 60%,
+    100% 65%,
+    0% 70%,
+    100% 75%,
+    0% 80%,
+    100% 85%,
+    0% 90%,
+    100% 95%,
+    0% 100%
+  );
+  z-index: 10;
+}
+
+.about__sticky-note {
+  background-color: var(--primary-yellow, #ffdb4d);
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 15px 50px 15px 5px; /* Forma irregular tipo nota */
+  transform: rotate(-2deg);
+  margin-bottom: 25px;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.about__label {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #6a2c91; /* Morado */
+}
+
+.about__description {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.about__photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  border: 5px dashed #ddd; /* Estilo para cuando pongas la foto */
+}
+
+/* --- LADO DERECHO (TU CONTENIDO) --- */
+.activities__content {
+  flex: 1.5; /* El lado de las cards es un poco más ancho */
+  padding: 100px 5% 100px 10%;
+  /* Fondo de puntos/confeti */
+  background-image: radial-gradient(
+      circle,
+      var(--primary-red) 6px,
+      transparent 3px
+    ),
+    radial-gradient(circle, var(--primary-blue) 6px, transparent 3px),
+    radial-gradient(circle, var(--primary-yellow) 8px, transparent 4px),
+    radial-gradient(circle, var(--primary-green) 6px, transparent 3px),
+    radial-gradient(circle, var(--text-purple) 4px, transparent 2px);
+
+  background-size: 150px 150px, 250px 250px, 200px 200px, 180px 180px,
+    300px 300px;
+
+  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
+}
+
+.activities__title {
+  font-family: "Fredoka", sans-serif;
+  font-size: 3rem;
+  color: #6a2c91; /* Título Morado */
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+/* Mantenemos tu grid tal cual */
+.activities__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.activity-card {
+  border-radius: 25px;
+  overflow: hidden; /* Importante para que la imagen respete los bordes redondeados */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.activity-card:hover {
+  /* Elevación con efecto rebote */
+  transform: translateY(-10px) scale(1.02);
+  /* Sombra más profunda para dar profundidad */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  z-index: 10; /* Asegura que la tarjeta que crece se vea por encima de las otras */
+}
+
+.activity-card__image-container {
+  width: 100%;
+  height: 180px; /* Altura fija para que todas las cards midan lo mismo */
+  overflow: hidden;
+}
+
+.activity-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que la foto llene el espacio sin deformarse */
+  border-bottom: 5px solid rgba(255, 255, 255, 0.3); /* Línea decorativa */
+  transition: transform 0.5s ease;
+}
+
+.activity-card:hover .activity-card__img {
+  /* La imagen se acerca un 10% */
+  transform: scale(1.1);
+}
+
+.activity-card__body {
+  padding: 20px;
+}
+
+.activity-card__title {
+  color: white;
+  font-family: "Fredoka", sans-serif;
+  margin-bottom: 10px;
+}
+
+.activity-card__description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 992px) {
+  .activities__wrapper {
+    flex-direction: column;
+  }
+  .activities__about {
+    padding: 60px 20px;
+  }
+  .activities__title {
+    font-size: 2.2rem;
+  }
+  .activities__content {
+    padding: 60px 20px;
+  }
+  .activities__divider {
+    display: none;
+  }
+}
