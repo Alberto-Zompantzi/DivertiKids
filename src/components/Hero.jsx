@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="hero-visual">
           <div className="hero-main-card">
             <img
-              src="public\Divertikids.jpeg"
+              src="\Divertikids.jpeg"
               alt="Niños aprendiendo"
               className="main-char-img"
             />
