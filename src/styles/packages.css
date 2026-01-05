@@ -1,270 +1,147 @@
 .packages {
-  padding-block: var(--space-xl);
-  background-color: #f8f0ff;
-  position: relative;
-  overflow: hidden;
-  margin-top: var(--space-xl);
-  background-image: radial-gradient(
-      circle,
-      var(--primary-red) 6px,
-      transparent 3px
-    ),
-    radial-gradient(circle, var(--primary-blue) 6px, transparent 3px),
-    radial-gradient(circle, var(--primary-yellow) 8px, transparent 4px),
-    radial-gradient(circle, var(--primary-green) 6px, transparent 3px),
-    radial-gradient(circle, var(--text-purple) 4px, transparent 2px);
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+}
 
-  background-size: 150px 150px, 250px 250px, 200px 200px, 180px 180px,
-    300px 300px;
-
-  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
+.packages__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .packages__title {
-  text-align: center;
-  font-size: clamp(1.6rem, 5vw, 2.2rem);
-  margin-bottom: var(--space-lg);
-  color: #6a2c91;
   font-family: "Fredoka", sans-serif;
-  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--text-purple);
+  margin-bottom: 10px;
 }
 
 .packages__grid {
   display: grid;
-  gap: var(--space-md);
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: start;
 }
 
-/* --- ESPACIO PARA STICKERS (EMOTICONOS) --- */
-/* Usamos el ::after para poner un icono flotante en cada tarjeta */
-.package-card::after {
-  font-size: 3rem;
-  position: absolute;
-  top: -35px;
-  right: 10px;
-  filter: drop-shadow(2px 4px 0px rgba(0, 0, 0, 0.1));
-  transition: transform 0.3s ease;
+/* Controles */
+.packages__controls {
+  text-align: left;
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Sticker para cada tipo de paquete usando nth-child */
-.package-card:nth-child(1)::after {
-  content: "🎨";
-} /* Arma tu diversión */
-.package-card:nth-child(2)::after {
-  content: "🎉";
-} /* Toda la diversión */
-.package-card:nth-child(3)::after {
-  content: "✨";
-} /* Paquete artistas */
-
-.package-card:hover::after {
-  transform: scale(1.2) rotate(15deg);
+.control-group {
+  margin-bottom: 30px;
 }
 
-/* --- COLORES EN HOVER (EL MORADO QUE PEDISTE) --- */
-.package-card:hover {
-  background: #6a2c91;
-  border-color: #6a2c91;
-  color: #ffffff;
-}
-
-.package-card:hover .package-card__title {
-  color: #ffdb4d;
-}
-.package-card:hover .package-card__price {
-  color: #ffffff;
-}
-.package-card:hover .package-card__description {
-  color: #f0f0f0;
-}
-
-/* El botón cambia a amarillo en hover para resaltar */
-.package-card:hover .package-card__cta {
-  background-color: #ffdb4d;
-  color: #6a2c91;
-  box-shadow: 0 4px 0 #d4b539;
-}
-
-.package-card {
-  background-color: var(--color-light);
-  padding: 40px 30px;
-  border-radius: 35px;
-  position: relative;
-  border: 4px solid #f0f0f0;
-  box-shadow: var(--shadow-md);
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.package-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: var(--shadow-md);
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-secondary)
-  );
-  color: var(--color-light);
-}
-
-.package-card:hover .package-card__cta {
-  background-color: var(--color-light);
-  color: var(--color-primary);
-}
-
-.package-card:hover .package-card__price {
-  color: var(--color-accent);
-}
-
-.package-card__title {
-  font-size: 1.3rem;
+.control-group label {
+  display: block;
   font-weight: 700;
+  margin-bottom: 15px;
+  color: #444;
 }
 
-.package-card__price {
-  font-size: 1.5rem;
+/* Selector de Niños */
+.ninos-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 10px;
+}
+
+.nino-btn {
+  padding: 10px;
+  border: 2px solid #eee;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.nino-btn.active {
+  background: var(--primary-red);
+  color: white;
+  border-color: var(--primary-red);
+  transform: scale(1.05);
+}
+
+/* Slider */
+.activity-slider {
+  width: 100%;
+  accent-color: var(--primary-red);
+  cursor: pointer;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Tarjeta de Resultado */
+.result-card {
+  background: var(--text-purple);
+  color: white;
+  padding: 40px;
+  border-radius: 30px;
+  position: sticky;
+  top: 20px;
+  box-shadow: 0 20px 40px rgba(106, 44, 145, 0.3);
+}
+
+.result-price .amount {
+  font-size: 3.5rem;
   font-weight: 800;
-  color: var(--color-primary);
-  margin-block: var(--space-xs);
 }
 
-.package-card__description {
-  font-size: 1rem;
-  margin-bottom: var(--space-sm);
-  max-width: 45ch;
-  margin-inline: auto;
+.result-details {
+  list-style: none;
+  padding: 20px 0;
+  text-align: left;
 }
 
-.package-card__cta {
-  display: inline-block;
-  background-color: #6a2c91;
-  color: var(--color-light);
-  padding: 0.7em 1.4em;
-  border-radius: var(--radius-lg);
-  font-weight: 600;
-  box-shadow: var(--shadow-sm);
+.result-details li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Destacado */
-.package-card.is-featured {
-  background: #6a2c91;
-  border-color: #6a2c91;
-  color: #ffffff;
-  transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(106, 44, 145, 0.2);
-}
-
-.package-card.is-featured:hover {
-  transform: translateY(-8px) scale(1.05);
-}
-
-.package-card.is-featured .package-card__title {
-  color: #ffdb4d; /* Amarillo para el título */
-}
-
-.package-card.is-featured .package-card__price {
-  color: #ffffff;
-}
-
-/* --- Efecto de Brillo para el Botón Destacado --- */
-.package-card.is-featured .package-card__cta {
-  position: relative;
-  overflow: hidden; /* Corta el brillo para que no se salga del botón */
-  background-color: #ffdb4d;
-  color: #6a2c91;
-  border: none;
-  transition: transform 0.2s ease;
-}
-
-/* El destello de luz */
-.package-card.is-featured .package-card__cta::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -150%; /* Empieza fuera del botón a la izquierda */
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    /* El haz de luz blanca */ transparent
-  );
-  transform: rotate(25deg);
-  animation: shinySweep 3s infinite; /* Se repite cada 3 segundos */
-}
-
-/* Movimiento del brillo */
-@keyframes shinySweep {
-  0% {
-    left: -150%;
-  }
-  20% {
-    left: 150%; /* Cruza rápidamente */
-  }
-  100% {
-    left: 150%; /* Pausa antes de volver a empezar */
-  }
-}
-
-/* Efecto extra al pasar el mouse por el botón del destacado */
-.package-card.is-featured .package-card__cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 219, 77, 0.4);
-  background-color: #ffffff;
-}
-
-/* --- Insignia "¡Más popular!" --- */
-.package-card.is-featured {
-  position: relative; /* Necesario para ubicar la insignia */
-  /* Aseguramos que el contenido no se tape */
-  padding-top: calc(var(--space-md) + 20px);
-}
-
-.package-card.is-featured::before {
-  content: "¡MÁS POPULAR!";
-  position: absolute;
-  top: -15px; /* La hace sobresalir un poco por arriba */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--color-accent, #ffdb4d); /* El amarillo llamativo */
-  color: var(--text-purple, #6a2c91);
-  padding: 6px 20px;
+.btn-quote {
+  width: 100%;
+  padding: 15px;
   border-radius: 50px;
-  font-size: 0.75rem;
+  border: none;
+  background: white;
+  color: var(--text-purple);
   font-weight: 800;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  white-space: nowrap;
-  z-index: 2;
-  /* Animación sutil de latido para llamar la atención */
-  animation: pulseBadge 2s infinite;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-/* Animación para que la insignia "viva" */
-@keyframes pulseBadge {
-  0% {
-    transform: translateX(-50%) scale(1);
-  }
-  50% {
-    transform: translateX(-50%) scale(1.05);
-  }
-  100% {
-    transform: translateX(-50%) scale(1);
-  }
+.btn-quote:hover {
+  transform: translateY(-3px);
+  background: #f0f0f0;
 }
 
-/* Ajuste para que en el hover de las otras tarjetas no aparezca la insignia (solo en la destacada) */
-.package-card:not(.is-featured):hover::before {
-  content: none;
-}
-
-@media (min-width: 1024px) {
+/* RESPONSIVE */
+@media (max-width: 768px) {
   .packages__grid {
-    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+  }
+
+  .packages__title {
+    font-size: 2rem;
+  }
+
+  .result-card {
+    padding: 30px 20px;
   }
 }

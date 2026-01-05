@@ -1,19 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap");
 
 :root {
-  /* Colors */
   --color-primary: #ff5fa2;
   --color-secondary: #7b6cff;
   --color-accent: #ffd84d;
   --color-dark: #2b2b2b;
   --color-light: #ffffff;
   --color-bg: #fff7fb;
-  /* Section backgrounds */
+  --color-purple: #4a1d66;
+
   --bg-soft-pink: #fff1f7;
   --bg-soft-purple: #f4f2ff;
   --bg-soft-yellow: #fff9e6;
 
-  /* Hero */
   --primary-red: #ff4d4d;
   --primary-orange: #ffa500;
   --primary-yellow: #ffdb4d;
@@ -22,10 +21,8 @@
   --text-purple: #6a2c91;
   --bg-dots: #f0f0f0;
   --white: #ffffff;
-  --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --color-whatsapp: #25d366;
 
-  /* Typography */
-  --font-primary: "Poppins", system-ui, sans-serif;
   --font-kids: "Fredoka", sans-serif;
 
   /* Spacing  */
@@ -41,6 +38,10 @@
   --radius-lg: 2rem;
 
   /* Shadow (Material style) */
+  --shadow-navegacion: -10px 0 40px rgba(0, 0, 0, 0.4);
+  --shadow-contactanos: 0 4px 0 rgb(179, 54, 54);
+  --shadow-whatsapp: 0 4px 0 rgb(18, 140, 126);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.12);
+  --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
 }

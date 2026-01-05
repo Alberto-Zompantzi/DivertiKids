@@ -1,31 +1,41 @@
 import { useState } from "react";
 
 const infoCards = {
-  caballetes: {
-    title: "Caballetes Artísticos",
+  arte: {
+    title: "Talleres de Creación Artística",
     description:
-      "Un espacio donde cada niño se convierte en un pequeño artista.",
+      "¡Donde la imaginación toma forma! En nuestras estaciones de arte, cada niño se convierte en autor de su propia obra. Diseñamos un espacio seguro y equipado con materiales de alta calidad para que exploren texturas y colores, fomentando la concentración, la motricidad fina y el orgullo de crear algo con sus propias manos. Al finalizar, ¡se llevan su creación a casa como el mejor recuerdo de la fiesta!",
     image: "/Divertikids.jpeg", // Puedes cambiar a la imagen específica
-    detalles: ["Pinturas no tóxicas", "Mandiles incluidos", "Dibujos variados"],
+    detalles: [
+      "Pintura de Alcancías",
+      "Pintura en Caballetes",
+      "Fábrica de Plastilina",
+      "Fábrica de Marionetas",
+    ],
     color: "red",
   },
-  alcancias: {
-    title: "Pinta Alcancías",
+  destreza: {
+    title: "Circuito de Desafíos & Destreza",
     description:
-      "¡Creatividad y ahorro! Los niños personalizan su propia figura.",
-    image: "/Divertikids.jpeg",
-    detalles: ["Figuras de yeso", "Pinceles de calidad", "Se lo llevan a casa"],
-    color: "green",
-  },
-  juegos: {
-    title: "Juegos Educativos",
-    description:
-      "Diversión inteligente para desarrollar habilidades mientras juegan.",
+      "¡Diversión clásica con un toque de adrenalina! Revivimos los mejores juegos de feria y dinámicas de habilidad en un entorno vibrante y competitivo de forma sana. Este circuito está diseñado para poner a prueba la puntería, la paciencia y el trabajo en equipo de los pequeños invitados. Es la opción ideal para mantener la energía al máximo, donde cada acierto es celebrado y el esfuerzo siempre tiene recompensa.",
     image: "/Divertikids.jpeg",
     detalles: [
-      "Material didáctico",
-      "Supervisión constante",
-      "Retos divertidos",
+      "Pesca Deportiva",
+      "Tiro al Blanco",
+      "Lanzamiento de Minipufs",
+      "Lotería Mexicana Tradicional",
+      "Canicas",
+    ],
+    color: "green",
+  },
+  bienestar: {
+    title: "Estaciones de Bienestar & Fantasía",
+    description:
+      "¡Un viaje al mundo de los sueños! Creamos una atmósfera de relajación y magia donde los niños pueden transformarse en sus personajes favoritos o disfrutar de un momento de cuidado especial. Desde un maquillaje artístico profesional hasta una experiencia de spa diseñada para su edad, esta categoría se enfoca en la autoexpresión y el consentimiento, logrando que cada pequeño se sienta la estrella del evento.",
+    image: "/Divertikids.jpeg",
+    detalles: [
+      "Kids Beauty & Relax Experience (Mini Spa)",
+      "Maquillaje de Fantasía & Caracterización ",
     ],
     color: "orange",
   },
@@ -57,34 +67,30 @@ export default function Hero() {
             Entretenimiento infantil para fiestas, donde los niños pueden jugar,
             pintar y aprender.
           </p>
-          <button
-            className="cta-button"
-            onClick={() => setSelectedInfo(infoCards.juegos)}
-          >
-            Nuestros Servicios
+          <button className="cta-button">
+            <a href="#packages">Nuestros Servicios</a>
           </button>
         </div>
       </div>
 
       <div className="hero-categories">
-        {/* Usamos las clases originales 'cat-card red', 'cat-card green', etc. */}
         <button
           className="cat-card red"
-          onClick={() => setSelectedInfo(infoCards.caballetes)}
+          onClick={() => setSelectedInfo(infoCards.arte)}
         >
-          <span className="icon">🎨</span> Caballetes
+          <span className="icon">🎨</span> Talleres De Creación Artística
         </button>
         <button
           className="cat-card green"
-          onClick={() => setSelectedInfo(infoCards.alcancias)}
+          onClick={() => setSelectedInfo(infoCards.destreza)}
         >
-          <span className="icon">🐷</span> Pinta Alcancías
+          <span className="icon">🏆</span> Circuito De Desafíos & Destreza
         </button>
         <button
           className="cat-card orange"
-          onClick={() => setSelectedInfo(infoCards.juegos)}
+          onClick={() => setSelectedInfo(infoCards.bienestar)}
         >
-          <span className="icon">🎲</span> Juegos Educativos
+          <span className="icon">✨</span> Estación De Bienestar & Fantasía
         </button>
       </div>
 

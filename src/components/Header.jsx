@@ -4,6 +4,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <header className="header">
       <div
@@ -15,7 +16,6 @@ export default function Header() {
           <img src="\Logo.jpg" alt="logo" />
         </a>
 
-        {/* Paso 3: Agregamos el botón hamburguesa (solo se verá en móvil) */}
         <button
           className={`header__burger ${isMenuOpen ? "is-active" : ""}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -26,7 +26,6 @@ export default function Header() {
         </button>
 
         <nav className={`header__nav ${isMenuOpen ? "is-open" : ""}`}>
-          {/* Al hacer clic en un link, el menú se cierra automáticamente */}
           <a href="#hero" onClick={closeMenu}>
             Inicio
           </a>
@@ -43,7 +42,7 @@ export default function Header() {
 
         <div className="header__actions">
           <a href="#contact" className="header__cta">
-            Cotizar
+            Contactanos
           </a>
 
           <a
@@ -51,7 +50,6 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             className="header__whatsapp"
-            aria-label="WhatsApp DivertiKids"
           >
             <svg
               width="20"
