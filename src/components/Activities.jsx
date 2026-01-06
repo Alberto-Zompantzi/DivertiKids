@@ -24,7 +24,7 @@ export default function Activities() {
           </div>
         </aside>
 
-        {/* Lado Derecho: Grid de Actividades */}
+        {/* Lado Derecho */}
         <main className="activities__content">
           <h2 className="activities__title">Nuestras actividades</h2>
           <div className="activities__grid">
