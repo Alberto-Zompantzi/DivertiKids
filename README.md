@@ -1,8 +1,8 @@
-# 🎈 DivertiKids - Eventos Infantiles Recreativos
+# DivertiKids - Eventos Infantiles Recreativos
 
 DivertiKids es una plataforma web profesional diseñada para la promoción y gestión de actividades recreativas infantiles. El sitio combina una estética vibrante y amigable con una arquitectura técnica moderna, optimizada para la conversión y la experiencia de usuario (UX).
 
-## 🚀 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **Frontend:** React.js (Componentización de UI).
 - **Estilos:** CSS3 Moderno (Variables CSS, Flexbox, CSS Grid).
@@ -11,7 +11,7 @@ DivertiKids es una plataforma web profesional diseñada para la promoción y ges
 - **Despliegue:** Netlify con integración continua.
 - **SEO:** Metadatos dinámicos, Open Graph protocol y estructuración de datos para buscadores.
 
-## 🛠️ Proceso de Desarrollo Paso a Paso
+## Proceso de Desarrollo Paso a Paso
 
 ### 1. Conceptualización y Arquitectura
 
@@ -43,5 +43,3 @@ Se crearon componentes reutilizables como `ActivityCard`, optimizados con:
 El sitio se desplegó utilizando un flujo de trabajo de integración continua, permitiendo actualizaciones rápidas. Se realizaron pruebas de visualización en dispositivos móviles (Responsive Design) para asegurar que la experiencia sea perfecta en cualquier pantalla.
 
 ---
-
-**Desarrollado con ❤️ por el equipo de DivertiKids.**
