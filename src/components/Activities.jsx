@@ -20,7 +20,7 @@ export default function Activities() {
           </p>
 
           <div className="about__photo-container">
-            <img src="public\Quienes somos.jpeg" alt="Equipo DivertiKids" />
+            <img src="public\Quienes-somos.jpeg" alt="Equipo DivertiKids" />
           </div>
         </aside>
 
