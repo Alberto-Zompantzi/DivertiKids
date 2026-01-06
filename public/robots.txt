@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://divertikids.netlify.app/sitemap.xml
+Sitemap: https://divertikids.pages.dev/sitemap.xml
