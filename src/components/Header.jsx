@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
@@ -10,15 +11,18 @@ export default function Header() {
       <div
         className={`header__overlay ${isMenuOpen ? "is-visible" : ""}`}
         onClick={closeMenu}
-      ></div>
+      />
+
       <div className="header__container container">
-        <a href="App.jsx" className="header__logo">
-          <img src="\Logo.jpg" alt="logo" />
+        <a href="#" className="header__logo">
+          <img src="/Logo.jpg" alt="DivertiKids Logo" />
         </a>
 
         <button
+          type="button"
           className={`header__burger ${isMenuOpen ? "is-active" : ""}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={toggleMenu}
+          aria-label="Menu"
         >
           <span></span>
           <span></span>
@@ -26,13 +30,13 @@ export default function Header() {
         </button>
 
         <nav className={`header__nav ${isMenuOpen ? "is-open" : ""}`}>
-          <a href="#hero" onClick={closeMenu}>
+          <a href="#" onClick={closeMenu}>
             Inicio
           </a>
           <a href="#activities" onClick={closeMenu}>
             Actividades
           </a>
-          <a href="#packages" onClick={closeMenu}>
+          <a href="#paquetes" onClick={closeMenu}>
             Paquetes
           </a>
           <a href="#contact" onClick={closeMenu}>
@@ -50,6 +54,7 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             className="header__whatsapp"
+            aria-label="WhatsApp"
           >
             <svg
               width="20"

@@ -1,8 +1,5 @@
 .contact {
-  background-color: #fffde7;
-  padding-block: var(--space-xl);
-  position: relative;
-  overflow: hidden;
+  background-color: var(--bg-soft-purple);
   background-image: radial-gradient(
       circle,
       var(--primary-red) 6px,
@@ -12,94 +9,76 @@
     radial-gradient(circle, var(--primary-yellow) 8px, transparent 4px),
     radial-gradient(circle, var(--primary-green) 6px, transparent 3px),
     radial-gradient(circle, var(--text-purple) 4px, transparent 2px);
-
+  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
   background-size: 150px 150px, 250px 250px, 200px 200px, 180px 180px,
     300px 300px;
-
-  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
+  overflow: hidden;
+  padding-block: var(--space-xl);
+  position: relative;
 }
 
-.contact h2 {
-  text-align: center;
-  font-family: "Fredoka", sans-serif;
+.contact__title {
+  color: var(--text-purple);
+  font-family: var(--font-kids);
   font-size: 3rem;
-  color: #6a2c91;
   margin-bottom: 50px;
+  text-align: center;
 }
 
 .contact__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 30px;
-  max-width: 1100px;
+  justify-content: center;
   margin: 0 auto;
+  max-width: 1100px;
   padding: 0 20px;
 }
 
 .contact__item {
-  list-style: none;
   animation: floatBubble 4s ease-in-out infinite;
+  list-style: none;
 }
 
-/* Variamos el tiempo de la animación para cada burbuja */
 .contact__item:nth-child(even) {
-  animation-duration: 5s;
   animation-delay: 1s;
+  animation-duration: 5s;
 }
+
 .contact__item:nth-child(3n) {
   animation-duration: 6s;
 }
 
 .contact__item a {
-  text-decoration: none;
-  background-color: white;
-  padding: 30px 40px;
-  /* Forma de burbuja irregular */
+  align-items: center;
+  background-color: var(--white);
+  border: 4px solid var(--bg-soft-purple);
   border-radius: 50px 50px 50px 10px;
   box-shadow: 0 10px 0px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
+  padding: 30px 40px;
+  text-decoration: none;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 4px solid #f0f0f0;
-}
-
-/* Colores por red social al hacer HOVER */
-.contact__item:nth-child(1) a:hover {
-  border-color: #25d366;
-  background-color: #e8f9ee;
-} /* WhatsApp */
-.contact__item:nth-child(2) a:hover {
-  border-color: #3498db;
-  background-color: #ebf5fb;
-} /* Tel */
-.contact__item:nth-child(3) a:hover {
-  border-color: #1877f2;
-  background-color: #e8f1ff;
-} /* FB */
-.contact__item:nth-child(4) a:hover {
-  border-color: #e1306c;
-  background-color: #ffeff5;
-} /* IG */
-.contact__item:nth-child(5) a:hover {
-  border-color: #000000;
-  background-color: #f5f5f5;
-} /* TikTok */
-
-.contact__item a strong {
-  color: #6a2c91;
-  font-size: 1.2rem;
-  font-family: "Fredoka", sans-serif;
 }
 
 .contact__item a:hover {
+  box-shadow: var(--shadow-soft);
   transform: scale(1.1) rotate(3deg);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Agregamos un emoji automático según el label sin tocar el JSX */
+.contact__label-text {
+  color: var(--text-purple);
+  font-family: var(--font-kids);
+  font-size: 1.2rem;
+}
+
+.contact__value-text {
+  color: var(--text-purple);
+  opacity: 0.8;
+}
+
 .contact__item a::before {
   font-size: 2.5rem;
   margin-bottom: 10px;
@@ -121,7 +100,35 @@
   content: "🎬";
 }
 
-/* Animación de flotación */
+.contact__item:nth-child(1) a:hover {
+  border-color: #25d366;
+  background-color: var(--white);
+}
+.contact__item:nth-child(2) a:hover {
+  border-color: var(--primary-blue);
+  background-color: var(--white);
+}
+
+.contact__item:nth-child(3) a:hover {
+  border-color: #1877f2;
+}
+.contact__item:nth-child(4) a:hover {
+  border-color: #e1306c;
+}
+.contact__item:nth-child(5) a:hover {
+  border-color: var(--text-purple);
+}
+
+@media (max-width: 600px) {
+  .contact__list {
+    align-items: center;
+    flex-direction: column;
+  }
+  .contact__item a {
+    width: 250px;
+  }
+}
+
 @keyframes floatBubble {
   0%,
   100% {
@@ -129,15 +136,5 @@
   }
   50% {
     transform: translateY(-15px);
-  }
-}
-
-@media (max-width: 600px) {
-  .contact__list {
-    flex-direction: column;
-    align-items: center;
-  }
-  .contact__item a {
-    width: 250px;
   }
 }

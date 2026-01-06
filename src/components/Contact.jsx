@@ -3,38 +3,34 @@ import ContactItem from "./ContactItem";
 
 export default function Contact() {
   return (
-    <section id="contact" className="contact">
-      <h2>Contacto</h2>
+    <section className="contact" id="contact">
+      <h2 className="contact__title">Contacto</h2>
 
       <ul className="contact__list">
         <ContactItem
+          href={`https://wa.me/52${contactInfo.whatsapp}`}
           label="WhatsApp"
           value={contactInfo.whatsapp}
-          href={`https://wa.me/52${contactInfo.whatsapp}`}
         />
-
         <ContactItem
+          href={`tel:${contactInfo.phone}`}
           label="Teléfono"
           value={contactInfo.phone}
-          href={`tel:${contactInfo.phone}`}
         />
-
         <ContactItem
+          href={contactInfo.facebook}
           label="Facebook"
           value="DivertiKids"
-          href={contactInfo.facebook}
         />
-
         <ContactItem
+          href={contactInfo.instagram}
           label="Instagram"
           value="@divertikids"
-          href={contactInfo.instagram}
         />
-
         <ContactItem
+          href={contactInfo.tiktok}
           label="TikTok"
           value="@divertikids"
-          href={contactInfo.tiktok}
         />
       </ul>
     </section>

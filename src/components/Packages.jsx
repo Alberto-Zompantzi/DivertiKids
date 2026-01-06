@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { pricingData } from "../data/pricingData"; // Asegúrate de que la ruta sea correcta
+import React, { useState, useMemo } from "react";
+import { pricingData } from "../data/pricingData";
 
 export default function Packages() {
   const [ninos, setNinos] = useState(10);
   const [actividades, setActividades] = useState(5);
-  const [currentData, setCurrentData] = useState(pricingData[0]);
 
-  // Cada vez que cambie el número de niños, buscamos la fila correspondiente
-  useEffect(() => {
-    const found = pricingData.find((item) => item.n_n === ninos);
-    if (found) setCurrentData(found);
+  // Buscamos la data correspondiente a los niños seleccionados de forma eficiente
+  const currentData = useMemo(() => {
+    return pricingData.find((item) => item.n_n === ninos) || pricingData[0];
   }, [ninos]);
 
   const total = currentData.paquetes[actividades];
+
+  const handleWhatsApp = () => {
+    const message = `¡Hola! Me interesa el paquete de ${actividades} actividades para ${ninos} niños ($${total}).`;
+    window.open(
+      `https://wa.me/522311048087?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+  };
 
   return (
     <section className="packages" id="paquetes">
@@ -26,7 +32,7 @@ export default function Packages() {
           {/* LADO IZQUIERDO: CONTROLES */}
           <div className="packages__controls">
             <div className="control-group">
-              <label>¿Cuántos niños asistirán?</label>
+              <label className="control-label">¿Cuántos niños asistirán?</label>
               <div className="ninos-selector">
                 {pricingData.map((item) => (
                   <button
@@ -41,24 +47,23 @@ export default function Packages() {
             </div>
 
             <div className="control-group">
-              <label>
-                ¿Cuántas actividades quieres? <span>({actividades})</span>
+              <label className="control-label">
+                ¿Cuántas actividades quieres?{" "}
+                <span className="highlight-text">({actividades})</span>
               </label>
               <input
-                type="range"
-                min="5"
-                max="9"
-                step="1"
-                value={actividades}
-                onChange={(e) => setActividades(parseInt(e.target.value))}
                 className="activity-slider"
+                max="9"
+                min="5"
+                onChange={(e) => setActividades(parseInt(e.target.value))}
+                step="1"
+                type="range"
+                value={actividades}
               />
               <div className="slider-labels">
-                <span>5</span>
-                <span>6</span>
-                <span>7</span>
-                <span>8</span>
-                <span>9</span>
+                {[5, 6, 7, 8, 9].map((num) => (
+                  <span key={num}>{num}</span>
+                ))}
               </div>
             </div>
           </div>
@@ -67,8 +72,8 @@ export default function Packages() {
           <div className="packages__result">
             <div className="result-card">
               <div className="result-header">
-                <span className="badge">Recomendado</span>
-                <h3>Resumen del Plan</h3>
+                <span className="badge">¡Mejor Precio!</span>
+                <h3 className="result-card-title">Resumen del Plan</h3>
               </div>
 
               <div className="result-price">
@@ -92,15 +97,7 @@ export default function Packages() {
                 </li>
               </ul>
 
-              <button
-                className="btn-quote"
-                onClick={() =>
-                  window.open(
-                    `https://wa.me/522311048087?text=Hola! Me interesa el paquete de ${actividades} actividades para ${ninos} niños ($${total})`,
-                    "_blank"
-                  )
-                }
-              >
+              <button className="btn-quote" onClick={handleWhatsApp}>
                 Reservar por WhatsApp
               </button>
             </div>

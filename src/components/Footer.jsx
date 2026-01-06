@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer__rainbow"></div> {/* El arcoíris separador */}
+      <div className="footer__rainbow"></div>
       <div className="container footer__content">
         <div className="footer__info">
           <h3 className="footer__brand">

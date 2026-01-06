@@ -1,8 +1,9 @@
 export default function ContactItem({ label, value, href }) {
   return (
     <li className="contact__item">
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        <strong>{label}:</strong> {value}
+      <a href={href} rel="noopener noreferrer" target="_blank">
+        <strong className="contact__label-text">{label}:</strong>
+        <span className="contact__value-text">{value}</span>
       </a>
     </li>
   );

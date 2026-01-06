@@ -1,9 +1,16 @@
+/* --- Variables locales --- */
+:root {
+  --header-height: 85px;
+  --header-rainbow-size: 20px;
+  --header-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .header {
   align-items: center;
   background-color: var(--color-light);
   display: flex;
   font-family: var(--font-kids);
-  height: 85px;
+  height: var(--header-height);
   left: 0;
   position: fixed;
   top: 0;
@@ -11,24 +18,20 @@
   z-index: 1000;
 }
 
+/* Línea de Arcoíris Animada */
 .header::after {
   animation: moveRainbow 4s linear infinite;
   background: linear-gradient(
     90deg,
-    var(--primary-red) 0%,
-    var(--primary-red) 20%,
-    var(--primary-orange) 20%,
-    var(--primary-orange) 40%,
-    var(--primary-yellow) 40%,
-    var(--primary-yellow) 60%,
-    var(--primary-green) 60%,
-    var(--primary-green) 80%,
-    var(--primary-blue) 80%,
-    var(--primary-blue) 100%
+    var(--primary-red) 0% 20%,
+    var(--primary-orange) 20% 40%,
+    var(--primary-yellow) 40% 60%,
+    var(--primary-green) 60% 80%,
+    var(--primary-blue) 80% 100%
   );
   background-size: 200px 100%;
   content: "";
-  height: 20px;
+  height: var(--header-rainbow-size);
   left: 0;
   position: absolute;
   top: 100%;
@@ -36,16 +39,16 @@
   z-index: -1;
 }
 
-/* --- Capa oscura detrás del menú --- */
+/* Capa Oscura Mobile */
 .header__overlay {
-  backdrop-filter: blur(3px); /* Difumina lo de atrás */
-  background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
+  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.5);
   height: 100vh;
-  left: 0;
+  inset: 0;
   opacity: 0;
   position: fixed;
-  top: 0;
-  transition: all 0.3s ease;
+  transition: opacity var(--header-transition),
+    visibility var(--header-transition);
   visibility: hidden;
   width: 100%;
   z-index: 1500;
@@ -62,7 +65,7 @@
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 20px;
+  padding: 0 var(--space-md);
   width: 100%;
 }
 
@@ -77,39 +80,18 @@
   transform: scale(1.1) rotate(-5deg);
 }
 
-.header__burger {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  display: none;
-  flex-direction: column;
-  height: 21px;
-  justify-content: space-between;
-  padding: 0;
-  width: 30px;
-  z-index: 2000;
-}
-
-.header__burger span {
-  background-color: var(--text-purple);
-  border-radius: 10px;
-  height: 4px;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-
+/* Navegación */
 .header__nav {
   display: flex;
-  gap: 30px;
+  gap: var(--space-md);
 }
 
 .header__nav a {
   color: var(--text-purple);
   font-size: 1.1rem;
   font-weight: 700;
-  position: relative;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color var(--header-transition), transform var(--header-transition);
 }
 
 .header__nav a:hover {
@@ -117,27 +99,27 @@
   transform: translateY(-3px);
 }
 
+/* Acciones y Botones */
 .header__actions {
   align-items: center;
   display: flex;
-  gap: 15px;
+  gap: var(--space-sm);
 }
 
 .header__cta {
   background-color: var(--primary-red);
-  border-radius: 50px;
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-contactanos);
   color: var(--color-light);
   font-size: 0.9rem;
   font-weight: 800;
-  padding: 10px 20px;
+  padding: var(--space-xs) var(--space-md);
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .header__cta:hover {
-  box-shadow: var(--shadow-contactanos);
   transform: translateY(-2px);
 }
 
@@ -149,7 +131,7 @@
   display: flex;
   height: 45px;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
   width: 45px;
 }
 
@@ -157,10 +139,32 @@
   transform: scale(1.1) rotate(10deg);
 }
 
+/* Burger Button */
+.header__burger {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  height: 21px;
+  justify-content: space-between;
+  padding: 0;
+  width: 30px;
+  z-index: 2100;
+}
+
+.header__burger span {
+  background-color: var(--text-purple);
+  border-radius: var(--radius-sm);
+  height: 4px;
+  transition: all var(--header-transition);
+  width: 100%;
+}
+
+/* Mobile & Tablet Styles */
 @media (max-width: 992px) {
   .header__burger {
     display: flex;
-    z-index: 2100;
   }
 
   .header__nav {
@@ -173,13 +177,13 @@
     box-shadow: var(--shadow-navegacion);
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: var(--space-lg);
     height: 100vh;
     justify-content: center;
     position: fixed;
     right: -100%;
     top: 0;
-    transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     width: 60%;
     z-index: 2000;
   }
@@ -192,8 +196,7 @@
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     color: var(--color-light);
     font-size: 1.8rem;
-    letter-spacing: 2px;
-    padding-bottom: 15px;
+    padding-bottom: var(--space-sm);
     text-align: center;
     text-transform: uppercase;
     width: 80%;
@@ -202,7 +205,6 @@
   .header__nav a:hover {
     border-bottom-color: var(--primary-yellow);
     color: var(--primary-yellow);
-    transform: scale(1.1);
   }
 
   .header__burger.is-active span {
@@ -224,13 +226,12 @@
 
 @media (max-width: 480px) {
   .header__cta {
-    padding: 8px 8px; /* Reducimos el tamaño interno */
-    font-size: 0.7rem; /* Letra un poco más pequeña */
-    letter-spacing: 0; /* Quitamos espacio entre letras para ahorrar ancho */
-    border-radius: 12px; /* Bordes ligeramente menos redondeados para que se vea más compacto */
-    max-width: fit-content; /* Asegura que no se estire al 100% del ancho */
+    border-radius: var(--radius-md);
+    font-size: 0.7rem;
+    padding: var(--space-xs);
   }
 }
+
 @keyframes moveRainbow {
   from {
     background-position: 0 0;

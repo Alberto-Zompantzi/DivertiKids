@@ -1,15 +1,6 @@
 .hero-container {
-  margin-top: 90px;
-
-  position: relative;
-  padding: 40px 10%;
-  min-height: calc(100vh - 90px);
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-color: var(--bg-soft-purple);
-  overflow: hidden;
   background-image: radial-gradient(
       circle,
       var(--primary-red) 6px,
@@ -19,42 +10,48 @@
     radial-gradient(circle, var(--primary-yellow) 8px, transparent 4px),
     radial-gradient(circle, var(--primary-green) 6px, transparent 3px),
     radial-gradient(circle, var(--text-purple) 4px, transparent 2px);
-
+  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
   background-size: 150px 150px, 250px 250px, 200px 200px, 180px 180px,
     300px 300px;
-
-  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 90px;
+  min-height: calc(100vh - 90px);
+  overflow: hidden;
+  padding: 40px 10%;
+  position: relative;
 }
 
 .hero-content {
+  align-items: center;
   display: flex;
   flex: 1;
-  align-items: center;
   gap: 50px;
-  width: 100%;
   max-width: 1200px;
+  width: 100%;
 }
 
 .hero-visual {
-  flex: 1;
-  position: relative;
   display: flex;
+  flex: 1;
   justify-content: center;
+  position: relative;
 }
 
 .hero-main-card {
-  background: white;
-  padding: 20px;
+  background: var(--white);
+  border: 8px solid var(--primary-yellow);
   border-radius: 40px;
   box-shadow: var(--shadow-soft);
-  border: 8px solid var(--primary-yellow);
+  padding: 20px;
   position: relative;
 }
 
 .main-char-img {
-  max-width: 100%;
-  height: 20rem;
   display: block;
+  height: 20rem;
+  max-width: 100%;
 }
 
 .hero-text-side {
@@ -62,8 +59,8 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
   color: var(--text-purple);
+  font-size: 3.5rem;
   line-height: 1.1;
   margin-bottom: 20px;
 }
@@ -73,59 +70,62 @@
 }
 
 .hero-description {
-  font-size: 1.2rem;
   color: #555;
+  font-size: 1.2rem;
   margin-bottom: 30px;
   max-width: 400px;
 }
 
 .cta-button {
   background-color: var(--primary-green);
-  color: white;
   border: none;
-  padding: 15px 40px;
   border-radius: 50px;
+  box-shadow: 0 5px 0px #5e9e31;
+  color: var(--white);
+  cursor: pointer;
+  display: inline-block;
   font-size: 1.2rem;
   font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 5px 0px #5e9e31;
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
   transition: transform 0.2s;
 }
 
 .cta-button:active {
-  transform: translateY(4px);
   box-shadow: 0 1px 0px #5e9e31;
+  transform: translateY(4px);
 }
 
-/* Botones inferiores */
+/* Categorías */
 .hero-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  margin-top: 1rem;
-  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   justify-content: center;
-  padding: 0 5%;
+  margin-top: 1rem;
   max-width: 1100px;
+  padding: 0 5%;
+  width: 100%;
 }
 
 .cat-card {
-  width: 100%;
-  min-height: 110px;
-  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 20px 25px;
-  gap: 20px;
-  border-radius: 25px;
   border: none;
-  color: white;
-  font-weight: 700;
-  font-size: 1.3rem;
+  border-radius: 25px;
+  color: var(--white);
   cursor: pointer;
-  position: relative;
+  display: flex;
+  font-size: 1.3rem;
+  font-weight: 700;
+  gap: 20px;
+  justify-content: flex-start;
+  min-height: 110px;
   overflow: hidden;
+  padding: 20px 25px;
+  position: relative;
   transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
 }
 
 .cat-card.red {
@@ -141,51 +141,23 @@
   box-shadow: 0 8px 0 #c47b00;
 }
 
-/* Overlay de fondo */
+/* Modal */
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-  display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 9999;
-  padding: 20px;
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100dvh; /* dvh asegura que en móvil no se tape con la barra del navegador */
-  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
+  height: 100dvh;
+  inset: 0;
   justify-content: center;
-  align-items: center;
+  padding: 15px;
+  position: fixed;
   z-index: 9999;
-  padding: 15px; /* Espacio de seguridad para que no toque los bordes del cel */
 }
 
-/* Caja de la pestaña */
 .modal-content {
-  background: white;
-  width: 95%;
-  max-width: 450px;
-  border-radius: 30px;
-  padding: 30px;
-  position: relative;
-  text-align: center;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.modal-content {
+  background-color: var(--white);
   background-image: radial-gradient(
       circle,
       var(--primary-red) 6px,
@@ -195,24 +167,21 @@
     radial-gradient(circle, var(--primary-yellow) 8px, transparent 4px),
     radial-gradient(circle, var(--primary-green) 6px, transparent 3px),
     radial-gradient(circle, var(--text-purple) 4px, transparent 2px);
-
+  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
   background-size: 150px 150px, 250px 250px, 200px 200px, 180px 180px,
     300px 300px;
-
-  background-position: 10% 10%, 30% 60%, 80% 20%, 50% 90%, 90% 70%;
-  width: 100%;
-  max-width: 500px; /* Ancho máximo en PC */
-  max-height: 90vh; /* ¡CLAVE! No deja que el modal sea más alto que la pantalla */
   border-radius: 30px;
-  padding: 30px 20px;
-  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* ¡CLAVE! Si el contenido es largo, aparece scroll interno */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  max-width: 500px;
+  overflow-y: auto;
+  padding: 30px 20px;
+  position: relative;
+  width: 100%;
 }
 
-/* Personalizar el scroll interno para que se vea limpio */
 .modal-content::-webkit-scrollbar {
   width: 6px;
 }
@@ -222,14 +191,13 @@
 }
 
 .modal-body {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-/* Bordes dinámicos según el color de la card */
 .border-red {
-  border: 5px solid #ff4d4d;
+  border: 5px solid var(--primary-red);
 }
 .border-green {
   border: 5px solid #2ecc71;
@@ -239,127 +207,70 @@
 }
 
 .modal-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
   background: #eee;
   border: none;
-  width: 35px;
-  height: 35px;
   border-radius: 50%;
+  cursor: pointer;
   font-size: 1.2rem;
   font-weight: bold;
-  cursor: pointer;
+  height: 35px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 35px;
 }
 
 .modal-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 20px;
+  border-radius: 50%;
+  height: 100px;
+  margin-bottom: 10px;
   object-fit: cover;
-  margin-bottom: 15px;
-}
-
-.modal-list {
-  text-align: left;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  width: 100%;
-  /* font-weight: 600; */
+  width: 100px;
 }
 
 .modal-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas siempre */
   gap: 8px;
-  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
   margin: 15px 0;
   padding: 0;
-  list-style: none;
+  width: 100%;
 }
 
 .modal-list li {
-  margin-bottom: 8px;
-  font-weight: 500;
   color: #555;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
-/* Responsivo */
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @media (max-width: 900px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
   }
-  .hero-categories {
-    flex-wrap: wrap;
-  }
-}
-
-/* --- ADAPTACIÓN SEGÚN EL TAMAÑO --- */
-
-/* En pantallas normales/grandes (Tablets en adelante) */
-@media (min-width: 600px) {
-  .modal-content {
-    max-width: 650px; /* Agrandamos un poco el ancho máximo del cuadro */
-  }
-
   .modal-list {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* 2 columnas para repartir el contenido */
-  }
-}
-
-/* Si quieres que en PC muy grande se vea en 3 columnas */
-@media (min-width: 900px) {
-  .modal-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 480px) {
   .modal-content {
-    padding: 25px 15px;
     border-radius: 25px;
+    padding: 25px 15px;
   }
-
-  .modal-title {
-    font-size: 1.4rem;
-  }
-
   .modal-text {
     font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .modal-list li {
-    font-size: 0.8rem;
-    padding: 6px;
-  }
-}
-
-/* Limitar la altura de la imagen para que no empuje el texto */
-.modal-img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-@keyframes modalPop {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
   }
 }

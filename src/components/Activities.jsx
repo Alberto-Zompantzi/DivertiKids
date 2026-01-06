@@ -5,8 +5,10 @@ export default function Activities() {
   return (
     <section className="activities" id="activities">
       <div className="activities__wrapper">
-        <div className="activities__about">
+        {/* Lado Izquierdo: Información de marca */}
+        <aside className="activities__about">
           <div className="activities__divider"></div>
+
           <div className="about__sticky-note">
             <span className="about__label">¿Quiénes somos?</span>
           </div>
@@ -17,14 +19,14 @@ export default function Activities() {
             transformando cada evento en una aventura inolvidable.
           </p>
 
-          <div className="about__photo-placeholder">
-            <img src="\Quienes somos.jpeg" alt="Quienes-somos" />
+          <div className="about__photo-container">
+            <img src="public\Quienes somos.jpeg" alt="Equipo DivertiKids" />
           </div>
-        </div>
+        </aside>
 
-        <div className="activities__content">
+        {/* Lado Derecho: Grid de Actividades */}
+        <main className="activities__content">
           <h2 className="activities__title">Nuestras actividades</h2>
-
           <div className="activities__grid">
             {activities.map((activity) => (
               <ActivityCard
@@ -36,7 +38,7 @@ export default function Activities() {
               />
             ))}
           </div>
-        </div>
+        </main>
       </div>
     </section>
   );
