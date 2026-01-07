@@ -8,7 +8,7 @@ DivertiKids es una plataforma web profesional diseñada para la promoción y ges
 - **Estilos:** CSS3 Moderno (Variables CSS, Flexbox, CSS Grid).
 - **Imágenes:** Generación mediante IA avanzada y optimización JPEG para carga progresiva.
 - **Tipografía:** Google Fonts (Fredoka).
-- **Despliegue:** Netlify con integración continua.
+- **Despliegue:** Clouflare con integración continua, anteriormente en Netlify.
 - **SEO:** Metadatos dinámicos, Open Graph protocol y estructuración de datos para buscadores.
 
 ## Proceso de Desarrollo Paso a Paso
