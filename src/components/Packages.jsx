@@ -91,10 +91,10 @@ export default function Packages() {
                 <li>
                   <span>⏰</span> {currentData.horas} Horas de servicio
                 </li>
-                <li>
+                {/* <li>
                   <span>💰</span> ${currentData.costoActividadIndividual} por
                   actividad/niño
-                </li>
+                </li> */}
               </ul>
 
               <button className="btn-quote" onClick={handleWhatsApp}>
